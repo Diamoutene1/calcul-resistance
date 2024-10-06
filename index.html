@@ -9,10 +9,16 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
+            margin: 0; /* Supprime les marges par défaut */
+            padding: 20px; /* Ajout de padding pour le contenu */
         }
+
         h1 {
             color: #333;
+            font-size: 2.5em; /* Taille de police plus grande */
+            margin-bottom: 20px; /* Espacement en bas */
         }
+
         .couleur_choisir {
             margin: 10px;
             padding: 10px;
@@ -22,6 +28,11 @@
             width: 30px;
             height: 30px;
             border-radius: 50%;
+            transition: transform 0.2s; /* Ajout d'une transition pour le survol */
+        }
+
+        .couleur_choisir:hover {
+            transform: scale(1.1); /* Effet de zoom au survol */
         }
 
         .selected {
@@ -30,35 +41,56 @@
 
         #result {
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 1.2em; /* Taille de police légèrement plus grande */
         }
 
         #error {
             color: red;
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 1.2em; /* Taille de police légèrement plus grande */
         }
 
         #instructions {
             margin: 20px 0;
-            font-size: 18px;
+            font-size: 1.2em; /* Taille de police légèrement plus grande */
             color: #555;
         }
 
         canvas {
             border: 1px solid #ccc;
             margin-top: 20px;
+            max-width: 100%; /* Rendre le canvas responsive */
+            height: auto; /* Maintenir le rapport d'aspect */
         }
 
         footer {
             margin-top: 30px;
-            font-size: 14px;
+            font-size: 0.8em; /* Taille de police pour le pied de page */
             color: #888;
         }
 
         .couleur-container {
             display: inline-block;
             text-align: center;
+            margin: 5px; /* Espacement entre les conteneurs de couleur */
+        }
+
+        .couleur-container-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* Permet d'enrouler les couleurs sur plusieurs lignes */
+            justify-content: center; /* Centre le contenu */
+            margin: 0 auto; /* Centre le conteneur principal */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Ajuster la taille du titre pour les petits écrans */
+            }
+
+            .couleur_choisir {
+                width: 25px; /* Réduire la taille des couleurs */
+                height: 25px; /* Réduire la taille des couleurs */
+            }
         }
     </style>
 </head>
@@ -69,14 +101,14 @@
 
     <div id="instructions">Cliquez sur un anneau, puis choisissez la couleur de la résistance.</div>
 
-    <div>
+    <div class="couleur-container-wrapper">
         <div class="couleur-container">
             <div class="couleur_choisir" style="background-color: black;" onclick="selectionner_couleur('black')"></div>
             <span>Noir</span>
         </div>
         <div class="couleur-container">
             <div class="couleur_choisir" style="background-color: brown;" onclick="selectionner_couleur('brown')"></div>
-            <span>Brun</span>
+            <span>Marron</span>
         </div>
         <div class="couleur-container">
             <div class="couleur_choisir" style="background-color: red;" onclick="selectionner_couleur('red')"></div>
@@ -99,7 +131,7 @@
             <span>Bleu</span>
         </div>
         <div class="couleur-container">
-            <div class="couleur_choisir" style="background-color: violet;" onclick="selectionner_couleur('pink')"></div>
+            <div class="couleur_choisir" style="background-color: violet;" onclick="selectionner_couleur('violet')"></div>
             <span>Violet</span>
         </div>
         <div class="couleur-container">
@@ -127,8 +159,6 @@
         © 2024 Zana Diamoutene
     </footer>
 
-   <script src="index.js"></script>
-      
-   
+   <script src="index.js"></script>    
 </body>
 </html>
